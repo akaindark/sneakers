@@ -1,7 +1,8 @@
 *,
 *::after,
-*::before{
+*::before {
   box-sizing: border-box;
+  font-family: 'Inter', system-ui;
 }
 
 body {
@@ -112,8 +113,31 @@ ul, li {
 .content {
   padding: 40px;
 
-  &__title{
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 40px;
+  }
+
+  &__search-block {
+    border: 1px solid #F3F3F3;
+    border-radius: 10px;
+    padding: 0 15px;
+    display: flex;
+
+    input {
+      border: 0;
+      padding: 15px;
+      font-size: 13px;
+      color: #C4C4C4;
+      outline: none;
+      width: 200px;
+    }
+
+    img {
+      margin-right: 4px;
+    }
   }
 }
 
@@ -122,35 +146,45 @@ ul, li {
   border: 1px solid #F3F3F3;
   border-radius: 40px;
   padding: 30px;
-  cursor: pointer;
-  transition: all .3s;
+  transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
 
-  &__list{
+  &:hover,
+  &:focus {
+    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
+    transform: translateY(-5px);
+  }
+
+  &__list {
     display: flex;
     justify-content: space-between;
   }
 
-  &__img{
+  &__favorite {
+    position: absolute;
+    cursor: pointer;
+  }
+
+  &__img {
     margin-bottom: 14px;
   }
 
-  &__text{
+  &__text {
     font-size: 14px;
     line-height: 1.2;
     font-weight: 400;
     margin-bottom: 14px;
   }
 
-  &__inner{
+  &__inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    &-column{
+    &-column {
       display: flex;
       flex-direction: column;
 
-      span{
+      span {
         font-size: 13px;
         line-height: 1.2;
         font-weight: 500;
@@ -158,10 +192,157 @@ ul, li {
         text-transform: uppercase;
         margin-bottom: 2px;
       }
-      b{
+
+      b {
         font-size: 14px;
         line-height: 1.2;
       }
     }
   }
+}
+
+.drawer {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  width: 420px;
+  background-color: #fff;
+  box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+
+  &__overlay{
+    display: none;
+  }
+
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  & > .removeBtn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+}
+
+.item {
+  flex: 1;
+  overflow: auto;
+  margin-bottom: 40px;
+}
+
+.cartItem {
+  display: flex;
+  border: 1px solid #F3F3F3;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  &__inner {
+    width: 150px;
+    margin-right: auto;
+  }
+
+  &__img {
+    width: 70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+  }
+
+  .removeBtn {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity .15s ease-in-out;
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  b {
+    font-size: 17px;
+  }
+
+}
+
+.cartTotalBlock {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 20px;
+  }
+
+  div {
+    flex: 1;
+    height: 1px;
+    border-bottom: 1px dashed #dfdfdf;
+    position: relative;
+    top: -4px;
+    margin: 0 7px;
+  }
+
+  .greenButton {
+    position: relative;
+
+    &:hover,
+    &:focus {
+      img {
+        transform: translateX(5px);
+      }
+    }
+
+    img {
+      position: absolute;
+      right: 35px;
+      top: 20px;
+      transition: transform .2s ease-in-out;
+    }
+  }
+}
+
+.greenButton {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 600;
+  color: #fff;
+  padding: 18px;
+  background: #9DD558;
+  border-radius: 18px;
+  transition: background .2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: lighten(#9DD558, 5%);
+  }
+
+  &:active {
+    background: darken(#9DD558, 5%);
+  }
+
 }
