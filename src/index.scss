@@ -141,65 +141,10 @@ ul, li {
   }
 }
 
-.card {
-  width: 220px;
-  border: 1px solid #F3F3F3;
-  border-radius: 40px;
-  padding: 30px;
-  transition: box-shadow .2s ease-in-out, transform .2s ease-in-out;
-
-  &:hover,
-  &:focus {
-    box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
-    transform: translateY(-5px);
-  }
-
-  &__list {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__favorite {
-    position: absolute;
-    cursor: pointer;
-  }
-
-  &__img {
-    margin-bottom: 14px;
-  }
-
-  &__text {
-    font-size: 14px;
-    line-height: 1.2;
-    font-weight: 400;
-    margin-bottom: 14px;
-  }
-
-  &__inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &-column {
-      display: flex;
-      flex-direction: column;
-
-      span {
-        font-size: 13px;
-        line-height: 1.2;
-        font-weight: 500;
-        color: #BDBDBD;
-        text-transform: uppercase;
-        margin-bottom: 2px;
-      }
-
-      b {
-        font-size: 14px;
-        line-height: 1.2;
-      }
-    }
-  }
+.card__list{
+  display: flex;
 }
+
 
 .drawer {
   position: absolute;
